@@ -4,4 +4,4 @@ This repository contains my solutions for Samsung Software Expert Academy coding
 a record of my journey to become a better developer.
 
 * written in Python, Korean, and English
-* D1 ← easy --- hard → D4
+* D1 ← easy ---------- hard → D4
