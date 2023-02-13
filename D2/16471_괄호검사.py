@@ -1,6 +1,6 @@
 T = int(input())
-openingB = ['(', '{', '[']
-closingB = [')', '}', ']']
+openingB = ['(', '{']
+closingB = [')', '}']
 
 for tc in range(1, T+1):
     text = input()
@@ -23,12 +23,8 @@ for tc in range(1, T+1):
                 if stack.pop() != '{':
                     rlt = 0
                     break
-            if i == ']':
-                if stack.pop() != '[':
-                    rlt = 0
-                    break
 
-    if rlt and len(stack) == 0:
+    if rlt and not stack:
         rlt = 1
     else:
         rlt = 0

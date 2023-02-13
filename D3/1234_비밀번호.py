@@ -5,7 +5,7 @@ for tc in range(1, 11):
     for i in text:
         if password and i == password[-1]:
             password.pop()
-        else:
+        else:  # not password or i != password[-1]
             password.append(i)
 
     print(f'#{tc}', ' ', *password, sep='')
