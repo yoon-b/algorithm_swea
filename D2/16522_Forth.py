@@ -51,7 +51,6 @@ def evaluatePostfix2(expression):
             else:
                 return 'error'
 
-
 operation = ['+', '-', '*', '/']
 T = int(input())
 
