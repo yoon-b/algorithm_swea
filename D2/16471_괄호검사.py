@@ -19,7 +19,7 @@ for tc in range(1, T+1):
                 if stack.pop() != '(':
                     rlt = 0
                     break
-            if i == '}':
+            else:
                 if stack.pop() != '{':
                     rlt = 0
                     break
