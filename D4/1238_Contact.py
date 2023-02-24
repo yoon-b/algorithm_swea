@@ -1,28 +1,33 @@
-for tc in range(1):
-    n, s = map(int, input().split())
-    data = list(map(int, input().split()))
-    contacts = {}
-    for d in range(n//2):
-        if data[2 * d] in contacts.keys():
-            if data[2 * d + 1] not in contacts[data[2 * d]]:
-                contacts[data[2 * d]].append(data[2 * d + 1])
-        else:
-            contacts[data[2 * d]] = [data[2 * d + 1]]
-    log = [s]
-    queue = [contacts[s]]
-
+def levelOrder(lst: list, s: int):
+    queue = [s]
+    rlt = []
+    visited = [0] * 101
 
     while queue:
-        contact = queue.pop(0)
-        for c in contact:
-            if c not in log:
-                log.append(c)
+        level = []
+        l = len(queue)
+        for i in range(l):
+            current = queue.pop(0)
+            if not visited[current]:
+                visited[current] = 1
+            else:
+                continue
 
-                if c in contacts.keys():
-                    queue.append(contacts[c])
+            if lst[current]:
+                for c in lst[current]:
+                    if not visited[c]:
+                        level.append(c)
+                        queue.append(c)
+        rlt.append(level)
+    return rlt
 
 
+for tc in range(1, 11):
+    N, S = map(int, input().split())
+    data = list(map(int, input().split()))
+    adjLst = [[] for _ in range(101)]
+    for i in range(N//2):
+        adjLst[data[2*i]].append(data[2*i+1])
 
-    print(log)
-
+    print(f'#{tc}', max(levelOrder(adjLst, S)[-2]))
 
