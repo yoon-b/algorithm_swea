@@ -1,6 +1,6 @@
 T = int(input())
 
-cost = [c*c+(c-1)*(c-1) for c in range(22)]
+cost = [k*k+(k-1)*(k-1) for k in range(21)]
 
 for tc in range(1, T+1):
     N, M = map(int, input().split())
@@ -12,7 +12,7 @@ for tc in range(1, T+1):
                 houses.append((i, j))
     maxRev = len(houses) * M
     maxH = 0
-    for k in range(N+1, 0, -1):
+    for k in range(N+2, 0, -1):
         if maxRev < cost[k]:
             continue
         for i in range(N):
@@ -23,6 +23,4 @@ for tc in range(1, T+1):
                         cnt += 1
                 if maxH < cnt and cost[k] <= cnt * M:
                     maxH = cnt
-        if maxH:
-            break
     print(f'#{tc}', maxH)
